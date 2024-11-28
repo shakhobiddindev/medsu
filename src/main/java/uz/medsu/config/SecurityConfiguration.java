@@ -47,8 +47,8 @@ public class SecurityConfiguration {
                 .hasAnyRole("USER", "ADMIN", "DOCTOR")
                 .requestMatchers(new String[]{"/doctor/**", "/article/**"})
                 .hasRole("DOCTOR")
-//                .requestMatchers("/image/**")
-//                .hasAnyRole("ADMIN", "USER", "DOCTOR")
+                .requestMatchers("/image/**")
+                .hasAnyRole("ADMIN", "USER", "DOCTOR")
                 .anyRequest()
                 .authenticated();
         return http.build();
