@@ -1,0 +1,30 @@
+spring:
+  banner:
+    location: banner.txt
+  application:
+    name: medsu
+  datasource:
+    url: jdbc:postgresql://dpg-cseecce8ii6s739257pg-a.oregon-postgres.render.com/post_db_zkm9
+    username: post_user
+    password: fNJxJUGs4mbCl88SIQ5D1a7UFFy25het
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  sql:
+    init:
+      mode: never
+my_token:
+  key: ShaxobiddinJavaDeveloper
+  expire_pass_time: 300000
+  expire_time: 86400000
+my_var:
+  appliation_url: https://jjkjkj.com
+  start-time: "10:00"
+  break-time: "12:00"
+  end-time: "17:00"
+  file_path: /home/images/
+server:
+  servlet:
+    context-path: /api
