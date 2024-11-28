@@ -20,11 +20,11 @@ my_token:
   expire_pass_time: 300000
   expire_time: 86400000
 my_var:
-  appliation_url: https://jjkjkj.com
   start-time: "10:00"
   break-time: "12:00"
   end-time: "17:00"
-  file_path: /home/shaxobiddin/images/
+imgur:
+  client-id: "8e9f7d403565d88"
 server:
   servlet:
     context-path: /api

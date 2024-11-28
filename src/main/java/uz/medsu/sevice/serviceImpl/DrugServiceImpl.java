@@ -2,6 +2,7 @@ package uz.medsu.sevice.serviceImpl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import uz.medsu.entity.Drug;
 import uz.medsu.payload.drugs.DrugDTO;
@@ -110,8 +111,8 @@ public class DrugServiceImpl implements DrugService {
     }
 
     @Override
-    public ResponseMessage getAllDrug() {
-        List<ResponseDrugDTO> drugs = drugRepository.findAll().stream().map(drug -> {
+    public ResponseMessage getAllDrug(Integer page, Integer size) {
+        List<ResponseDrugDTO> drugs = drugRepository.findAll(PageRequest.of(page, size)).stream().map(drug -> {
             return new ResponseDrugDTO(
                     drug.getId(),
                     drug.getName(),

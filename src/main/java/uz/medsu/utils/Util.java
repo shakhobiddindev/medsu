@@ -16,6 +16,7 @@ public interface Util {
             "/auth/**",
             "/swagger-ui/**",
             "/v3/api-docs/**",
+//            "/image/**"
     };
 
     static User getCurrentUser() {

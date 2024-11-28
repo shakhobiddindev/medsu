@@ -8,5 +8,5 @@ public interface DrugService {
     ResponseMessage editDrug(Long id,DrugDTO drugDTO);
     ResponseMessage deleteDrug( Long id);
     ResponseMessage getById( Long id);
-    ResponseMessage getAllDrug();
+    ResponseMessage getAllDrug(Integer page, Integer size);
 }

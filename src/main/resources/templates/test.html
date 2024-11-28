@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Image Upload</title>
     <style>
+        /* Basic styling */
         .tooltip {
             position: relative;
             display: inline-block;
@@ -52,9 +53,65 @@
     </style>
 </head>
 <body>
-<form action="http://localhost:8080/api/image/3/drug" method="post" enctype="multipart/form-data">
-    <input type="file" name="file">
-    <button type="submit">save</button>
+
+<h2>Upload an Image with Bearer Token</h2>
+
+<!-- Form to upload image -->
+<form id="fileForm" enctype="multipart/form-data">
+    <label for="fileInput">Choose an image:</label>
+    <input type="file" name="file" id="fileInput" accept="image/*" required>
+    <br><br>
+    <label for="tokenInput">Bearer Token:</label>
+    <input type="text" id="tokenInput" placeholder="Enter Bearer Token" required>
+    <br><br>
+    <button type="submit">Upload</button>
 </form>
+
+<div id="response"></div>
+
+<script>
+    // Handle form submission
+    document.getElementById('fileForm').addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevent form submission
+
+        const fileInput = document.getElementById('fileInput');
+        const tokenInput = document.getElementById('tokenInput').value.trim();
+        const formData = new FormData();
+
+        // Ensure a file is selected
+        if (!fileInput.files[0]) {
+            alert("Please select a file to upload.");
+            return;
+        }
+
+        // Append the file to the FormData object
+        formData.append('file', fileInput.files[0]);
+
+        // Check if token is provided
+        if (!tokenInput) {
+            alert("Please provide a Bearer token.");
+            return;
+        }
+
+        // Make a POST request to upload the image with Bearer token
+        fetch('http://localhost:8080/api/image/3/drug', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${tokenInput}`,  // Add Bearer token to the request
+            },
+            body: formData,
+            mode: 'no-cors'
+        })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('response').innerHTML = `<p>Success: ${JSON.stringify(data)}</p>`;
+            })
+            .catch(error => {
+                document.getElementById('response').innerHTML = `<p>Error: ${error.message}</p>`;
+                console.error('Error:', error);
+            });
+    });
+</script>
+
 </body>
 </html>

@@ -24,8 +24,8 @@ public class DrugController {
 
     @PreAuthorize("hasAuthority('READ')")
     @GetMapping
-    public ResponseEntity<?> getAllDrugs() {
-        return ResponseEntity.ok(drugService.getAllDrug());
+    public ResponseEntity<?> getAllDrugs(Integer page, Integer size) {
+        return ResponseEntity.ok(drugService.getAllDrug(page, size));
     }
 
     @PreAuthorize("hasAuthority('READ')")
