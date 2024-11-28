@@ -11,16 +11,16 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
   sql:
     init:
-      mode: always
+      mode: never
 my_token:
-  key: ShaxobiddinJavaDeveloper
+  key: ShaxobiddinUralovJavaBackendDeveloper
   expire_pass_time: 300000
   expire_time: 86400000
 my_var:
-  appliation_url: https://jjkjkj.com
+  appliation_url: https://https://medsu-u6mi.onrender.com
   start-time: "10:00"
   break-time: "12:00"
   end-time: "17:00"

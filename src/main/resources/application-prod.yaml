@@ -17,15 +17,15 @@ spring:
       mode: never
 my_token:
 
-  key: ShaxobiddinJavaDeveloper
+  key: ShaxobiddinUralovJavaBackendDeveloper
   expire_pass_time: 300000
   expire_time: 86400000
 my_var:
-  appliation_url: https://jjkjkj.com
+  appliation_url: https://medsu-u6mi.onrender.com
   start-time: "10:00"
   break-time: "12:00"
   end-time: "17:00"
   file_path: /home/images/
-#server:
-#  servlet:
-#    context-path: /api
+server:
+  servlet:
+    context-path: /api
